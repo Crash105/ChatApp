@@ -11,7 +11,7 @@ const chatModel = new ChatOpenAI({
   streaming: true,
 });
 
-const systemPrompt = `Answer the user's questions based only on the following context. If the answer is not in the context, reply politely that you do not have that information available. You can communicate in multiple languages. If user wants to end the chat, ask them to rate their experience from 1 being terrible and 5 being great. You can respond in multiple languages but you MUST still use context. Limit responses to two sentences.
+const systemPrompt = `Answer the user's questions based only on the following context. If the answer is not in the context, reply politely that you do not have that information available. You can communicate in multiple languages. If user wants to end the chat, ask them to rate their experience from 1 being terrible and 5 being great. You can respond in multiple languages but you MUST still use context. LIMIT your responses to one sentences.
 ==============================
 Context: {context}
 ==============================
@@ -19,7 +19,7 @@ Current conversation: {chat_history}
 `;
 
 const loader = new JSONLoader(
-  "src/data/states.json",
+  "public/states.json",
   [
     "/camp_title", 
     "/state", 
