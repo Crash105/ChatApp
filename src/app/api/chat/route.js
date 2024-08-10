@@ -4,6 +4,9 @@ import { StringOutputParser } from "@langchain/core/output_parsers";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { JSONLoader } from "langchain/document_loaders/fs/json";
 import { formatDocumentsAsString } from 'langchain/util/document';
+import path from 'path';
+
+
 
 const chatModel = new ChatOpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -19,7 +22,8 @@ Current conversation: {chat_history}
 `;
 
 const loader = new JSONLoader(
-  "public/states.json",
+  path.join(process.cwd(), 'public', 'states.json'),
+
   [
     "/camp_title", 
     "/state", 
