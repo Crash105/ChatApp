@@ -1,0 +1,358 @@
+[
+    {
+        "camp_title": "GridironCampFL",
+        "state": "Florida",
+        "slug": "florida",
+        "code": "FL",
+        "city": "Miami",
+        "town": "Hialeah",
+        "camp_attendance_cost": "$260",
+        "description": "GridironCampFL is the premier football camp in Florida, offering intensive training and development for aspiring football players of all ages.",
+        "dates": ["June 10-14, 2024", "July 15-19, 2024"],
+        "age_groups": ["8-12 years", "13-17 years"],
+        "facilities": ["State-of-the-art football field", "Modern locker rooms", "On-site medical staff"],
+        "testimonials": [
+            "An amazing experience! The coaching staff was top-notch and the facilities were fantastic. - Alex R.",
+            "I improved my skills and made new friends. Highly recommend this camp! - Jamie T."
+        ],
+        "coaches": ["Coach Tom Green", "Coach Larry Hill", "Coach Martin Scott"],
+        "website": "http://www.floridagridironcamp.com",
+        "facebook_url": "https://www.facebook.com/GridironCampFL",
+        "twitter_url": "https://twitter.com/GridironCampFL",
+        "instagram_url": "https://www.instagram.com/GridironCampFL"
+    },
+    {
+        "camp_title": "GridironCampAL1",
+        "state": "Alabama",
+        "slug": "alabama",
+        "code": "AL",
+        "city": "Birmingham",
+        "town": "Hoover",
+        "camp_attendance_cost": "$240",
+        "description": "GridironCampAL1 is the leading football camp in Alabama, designed to elevate the skills of young athletes.",
+        "dates": ["June 1-5, 2024", "July 8-12, 2024"],
+        "age_groups": ["8-12 years", "13-17 years"],
+        "facilities": ["Professional turf field", "Advanced fitness center", "On-site physiotherapy"],
+        "testimonials": [
+            "Great coaches and a fantastic atmosphere! - Jake P.",
+            "I learned so much and had a blast. - Ryan S."
+        ],
+        "coaches": ["Coach Mike Johnson", "Coach Rick Harrison", "Coach Paul White"],
+        "website": "http://www.alabamagridironcamp.com",
+        "facebook_url": "https://www.facebook.com/GridironCampAL1",
+        "twitter_url": "https://twitter.com/GridironCampAL1",
+        "instagram_url": "https://www.instagram.com/GridironCampAL1"
+    },
+    {
+        "camp_title": "GridironCampAL2",
+        "state": "Alabama",
+        "slug": "alabama",
+        "code": "AL",
+        "city": "Montgomery",
+        "town": "Prattville",
+        "camp_attendance_cost": "$230",
+        "description": "GridironCampAL2 provides top-tier football training in Alabama's capital region.",
+        "dates": ["June 15-19, 2024", "July 20-24, 2024"],
+        "age_groups": ["8-12 years", "13-17 years"],
+        "facilities": ["High-quality turf field", "Modern weight room", "24/7 medical support"],
+        "testimonials": [
+            "The camp was a great experience for my son. - Mark D.",
+            "Amazing staff and well-organized camp. - Sarah L."
+        ],
+        "coaches": ["Coach Steve Harris", "Coach Tim Blake", "Coach Rob Walker"],
+        "website": "http://www.alabamagridironcamp.com",
+        "facebook_url": "https://www.facebook.com/GridironCampAL2",
+        "twitter_url": "https://twitter.com/GridironCampAL2",
+        "instagram_url": "https://www.instagram.com/GridironCampAL2"
+    },
+    {
+        "camp_title": "GridironCampTX1",
+        "state": "Texas",
+        "slug": "texas",
+        "code": "TX",
+        "city": "Dallas",
+        "town": "Plano",
+        "camp_attendance_cost": "$270",
+        "description": "GridironCampTX1 is the top football camp in Texas, offering elite training for young athletes.",
+        "dates": ["June 20-24, 2024", "July 25-29, 2024"],
+        "age_groups": ["8-12 years", "13-17 years"],
+        "facilities": ["Indoor training facility", "Advanced locker rooms", "On-site nutritionist"],
+        "testimonials": [
+            "This camp exceeded all expectations. - Chris M.",
+            "Great environment for learning and growing. - Lisa N."
+        ],
+        "coaches": ["Coach Sam Ellis", "Coach Derek Ray", "Coach Joe Turner"],
+        "website": "http://www.texasgridironcamp.com",
+        "facebook_url": "https://www.facebook.com/GridironCampTX1",
+        "twitter_url": "https://twitter.com/GridironCampTX1",
+        "instagram_url": "https://www.instagram.com/GridironCampTX1"
+    },
+    {
+        "camp_title": "GridironCampTX2",
+        "state": "Texas",
+        "slug": "texas",
+        "code": "TX",
+        "city": "Houston",
+        "town": "Sugar Land",
+        "camp_attendance_cost": "$250",
+        "description": "GridironCampTX2 offers cutting-edge football training in the Houston area.",
+        "dates": ["June 25-29, 2024", "August 1-5, 2024"],
+        "age_groups": ["8-12 years", "13-17 years"],
+        "facilities": ["Outdoor stadium", "High-tech training equipment", "Dedicated medical team"],
+        "testimonials": [
+            "My son learned so much at this camp. - Karen B.",
+            "The coaches were fantastic and supportive. - Tom R."
+        ],
+        "coaches": ["Coach Greg Nelson", "Coach Matt Ross", "Coach Carl Stone"],
+        "website": "http://www.texasgridironcamp.com",
+        "facebook_url": "https://www.facebook.com/GridironCampTX2",
+        "twitter_url": "https://twitter.com/GridironCampTX2",
+        "instagram_url": "https://www.instagram.com/GridironCampTX2"
+    },
+    {
+        "camp_title": "GridironCampCA1",
+        "state": "California",
+        "slug": "california",
+        "code": "CA",
+        "city": "Los Angeles",
+        "town": "Burbank",
+        "camp_attendance_cost": "$280",
+        "description": "GridironCampCA1 is the premier football camp in California, focusing on skill development and teamwork.",
+        "dates": ["July 1-5, 2024", "August 6-10, 2024"],
+        "age_groups": ["8-12 years", "13-17 years"],
+        "facilities": ["Synthetic turf field", "Modern gym facilities", "24/7 medical care"],
+        "testimonials": [
+            "A fantastic camp with experienced coaches. - Nancy W.",
+            "Great facilities and friendly staff. - David P."
+        ],
+        "coaches": ["Coach Dave Roberts", "Coach Ron Hayes", "Coach Alex Brown"],
+        "website": "http://www.californiagridironcamp.com",
+        "facebook_url": "https://www.facebook.com/GridironCampCA1",
+        "twitter_url": "https://twitter.com/GridironCampCA1",
+        "instagram_url": "https://www.instagram.com/GridironCampCA1"
+    },
+    {
+        "camp_title": "GridironCampCA2",
+        "state": "California",
+        "slug": "california",
+        "code": "CA",
+        "city": "San Francisco",
+        "town": "Oakland",
+        "camp_attendance_cost": "$290",
+        "description": "GridironCampCA2 delivers top-notch football training in the San Francisco Bay Area.",
+        "dates": ["July 15-19, 2024", "August 11-15, 2024"],
+        "age_groups": ["8-12 years", "13-17 years"],
+        "facilities": ["Pro-level turf field", "Fully equipped gym", "On-site athletic trainers"],
+        "testimonials": [
+            "This camp helped my son take his game to the next level. - Jerry S.",
+            "Amazing experience for young athletes. - Carla K."
+        ],
+        "coaches": ["Coach Luke Mitchell", "Coach James Dean", "Coach Ryan Clark"],
+        "website": "http://www.californiagridironcamp.com",
+        "facebook_url": "https://www.facebook.com/GridironCampCA2",
+        "twitter_url": "https://twitter.com/GridironCampCA2",
+        "instagram_url": "https://www.instagram.com/GridironCampCA2"
+    },
+    {
+        "camp_title": "GridironCampNY1",
+        "state": "New York",
+        "slug": "new-york",
+        "code": "NY",
+        "city": "New York City",
+        "town": "Brooklyn",
+        "camp_attendance_cost": "$265",
+        "description": "GridironCampNY1 is New York's top football camp, offering elite training in the heart of the city.",
+        "dates": ["July 20-24, 2024", "August 16-20, 2024"],
+        "age_groups": ["8-12 years", "13-17 years"],
+        "facilities": ["Turf field", "State-of-the-art gym", "Medical staff on-site"],
+        "testimonials": [
+            "An incredible camp experience! - Peter V.",
+            "Great training and lots of fun. - Rachel A."
+        ],
+        "coaches": ["Coach Tony Andrews", "Coach Scott Martin", "Coach Vince Carter"],
+        "website": "http://www.newyorkgridironcamp.com",
+        "facebook_url": "https://www.facebook.com/GridironCampNY1",
+        "twitter_url": "https://twitter.com/GridironCampNY1",
+        "instagram_url": "https://www.instagram.com/GridironCampNY1"
+    },
+    {
+        "camp_title": "GridironCampNY2",
+        "state": "New York",
+        "slug": "new-york",
+        "code": "NY",
+        "city": "Buffalo",
+        "town": "Amherst",
+        "camp_attendance_cost": "$245",
+        "description": "GridironCampNY2 offers excellent football training for young athletes in the Buffalo area.",
+        "dates": ["July 25-29, 2024", "August 21-25, 2024"],
+        "age_groups": ["8-12 years", "13-17 years"],
+        "facilities": ["Well-maintained field", "Fitness center", "Medical professionals on-site"],
+        "testimonials": [
+            "My son had a great time and learned so much. - Carol G.",
+            "Highly recommend this camp to all football enthusiasts. - Tom M."
+        ],
+        "coaches": ["Coach Bill Evans", "Coach Jeff Sanders", "Coach Nick King"],
+        "website": "http://www.newyorkgridironcamp.com",
+        "facebook_url": "https://www.facebook.com/GridironCampNY2",
+        "twitter_url": "https://twitter.com/GridironCampNY2",
+        "instagram_url": "https://www.instagram.com/GridironCampNY2"
+    },
+
+
+    {
+        "camp_title": "GridironCampGA",
+        "state": "Georgia",
+        "slug": "georgia",
+        "code": "GA",
+        "city": "Atlanta",
+        "town": "Marietta",
+        "camp_attendance_cost": "$300",
+        "description": "GridironCampGA is designed to push aspiring athletes to their limits, offering elite training with experienced coaches.",
+        "dates": ["June 5-9, 2024", "July 10-14, 2024"],
+        "age_groups": ["8-12 years", "13-17 years"],
+        "facilities": ["Professional-grade football field", "Strength training facilities", "On-site nutritionist"],
+        "testimonials": [
+            "My son's skills improved tremendously! - Sarah W.",
+            "Top-notch coaching and facilities. Worth every penny! - Mike D."
+        ],
+        "coaches": ["Coach Mark Johnson", "Coach Brian Lee", "Coach Kevin Adams"],
+        "website": "http://www.georgiagridironcamp.com",
+        "facebook_url": "https://www.facebook.com/GridironCampGA",
+        "twitter_url": "https://twitter.com/GridironCampGA",
+        "instagram_url": "https://www.instagram.com/GridironCampGA"
+    },
+    {
+        "camp_title": "GridironCampNC",
+        "state": "North Carolina",
+        "slug": "north-carolina",
+        "code": "NC",
+        "city": "Charlotte",
+        "town": "Concord",
+        "camp_attendance_cost": "$280",
+        "description": "GridironCampNC offers a comprehensive football training experience with some of the best coaches in the region.",
+        "dates": ["June 12-16, 2024", "July 17-21, 2024"],
+        "age_groups": ["8-12 years", "13-17 years"],
+        "facilities": ["Indoor practice field", "Rehabilitation center", "Cafeteria with healthy meal options"],
+        "testimonials": [
+            "An incredible experience with fantastic coaches. - Robert P.",
+            "My son's confidence and skills grew significantly! - Lisa H."
+        ],
+        "coaches": ["Coach Chris Bell", "Coach David Wright", "Coach James Harris"],
+        "website": "http://www.northcarolinagridironcamp.com",
+        "facebook_url": "https://www.facebook.com/GridironCampNC",
+        "twitter_url": "https://twitter.com/GridironCampNC",
+        "instagram_url": "https://www.instagram.com/GridironCampNC"
+    },
+    {
+        "camp_title": "GridironCampOH",
+        "state": "Ohio",
+        "slug": "ohio",
+        "code": "OH",
+        "city": "Columbus",
+        "town": "Dublin",
+        "camp_attendance_cost": "$250",
+        "description": "GridironCampOH is the go-to camp for young football players in Ohio, focusing on skill development and teamwork.",
+        "dates": ["June 18-22, 2024", "July 23-27, 2024"],
+        "age_groups": ["8-12 years", "13-17 years"],
+        "facilities": ["Outdoor stadium", "Training rooms", "On-site physiotherapist"],
+        "testimonials": [
+            "A wonderful camp with great opportunities for young athletes. - John M.",
+            "I highly recommend this camp for any aspiring football player. - Jennifer L."
+        ],
+        "coaches": ["Coach Steven Clark", "Coach Paul Evans", "Coach Richard King"],
+        "website": "http://www.ohiogridironcamp.com",
+        "facebook_url": "https://www.facebook.com/GridironCampOH",
+        "twitter_url": "https://twitter.com/GridironCampOH",
+        "instagram_url": "https://www.instagram.com/GridironCampOH"
+    },
+    {
+        "camp_title": "GridironCampPA",
+        "state": "Pennsylvania",
+        "slug": "pennsylvania",
+        "code": "PA",
+        "city": "Philadelphia",
+        "town": "Allentown",
+        "camp_attendance_cost": "$270",
+        "description": "GridironCampPA offers a rigorous training environment for football players looking to elevate their game.",
+        "dates": ["June 7-11, 2024", "July 12-16, 2024"],
+        "age_groups": ["8-12 years", "13-17 years"],
+        "facilities": ["Synthetic turf field", "Strength training center", "On-site sports psychologist"],
+        "testimonials": [
+            "My son learned so much in just one week! - Jessica S.",
+            "Great coaching and facilities. Highly recommended. - Tom B."
+        ],
+        "coaches": ["Coach Daniel Morris", "Coach Michael Scott", "Coach Andrew Taylor"],
+        "website": "http://www.pennsylvaniagridironcamp.com",
+        "facebook_url": "https://www.facebook.com/GridironCampPA",
+        "twitter_url": "https://twitter.com/GridironCampPA",
+        "instagram_url": "https://www.instagram.com/GridironCampPA"
+    },
+    {
+        "camp_title": "GridironCampMI",
+        "state": "Michigan",
+        "slug": "michigan",
+        "code": "MI",
+        "city": "Detroit",
+        "town": "Ann Arbor",
+        "camp_attendance_cost": "$290",
+        "description": "GridironCampMI provides top-tier coaching and facilities to help young football players reach their full potential.",
+        "dates": ["June 20-24, 2024", "July 25-29, 2024"],
+        "age_groups": ["8-12 years", "13-17 years"],
+        "facilities": ["Pro-level field", "State-of-the-art gym", "On-site athletic trainers"],
+        "testimonials": [
+            "An amazing opportunity for young athletes. - Samantha T.",
+            "My son can't wait to come back next year! - Dave R."
+        ],
+        "coaches": ["Coach William Brown", "Coach Jason Lewis", "Coach Matthew Lee"],
+        "website": "http://www.michigangridironcamp.com",
+        "facebook_url": "https://www.facebook.com/GridironCampMI",
+        "twitter_url": "https://twitter.com/GridironCampMI",
+        "instagram_url": "https://www.instagram.com/GridironCampMI"
+    },
+    {
+        "camp_title": "GridironCampVA",
+        "state": "Virginia",
+        "slug": "virginia",
+        "code": "VA",
+        "city": "Richmond",
+        "town": "Charlottesville",
+        "camp_attendance_cost": "$310",
+        "description": "GridironCampVA offers a premier football training experience, focusing on both skill development and personal growth.",
+        "dates": ["June 3-7, 2024", "July 8-12, 2024"],
+        "age_groups": ["8-12 years", "13-17 years"],
+        "facilities": ["High-quality turf field", "Modern weight room", "On-site medical facilities"],
+        "testimonials": [
+            "A fantastic camp that really helped my son improve. - Karen W.",
+            "Top-notch coaching staff and great facilities. - Mark G."
+        ],
+        "coaches": ["Coach Thomas Baker", "Coach Robert Johnson", "Coach Michael Green"],
+        "website": "http://www.virginiagridironcamp.com",
+        "facebook_url": "https://www.facebook.com/GridironCampVA",
+        "twitter_url": "https://twitter.com/GridironCampVA",
+        "instagram_url": "https://www.instagram.com/GridironCampVA"
+    },
+    {
+        "camp_title": "GridironCampIL",
+        "state": "Illinois",
+        "slug": "illinois",
+        "code": "IL",
+        "city": "Chicago",
+        "town": "Evanston",
+        "camp_attendance_cost": "$295",
+        "description": "GridironCampIL is the ideal camp for young football players in Illinois, offering excellent coaching and facilities.",
+        "dates": ["June 15-19, 2024", "July 20-24, 2024"],
+        "age_groups": ["8-12 years", "13-17 years"],
+        "facilities": ["Professional-grade field", "Advanced training equipment", "On-site nutrition counseling"],
+        "testimonials": [
+            "An outstanding camp with excellent coaches. - Amanda N.",
+            "My son's skills improved dramatically! - Eric F."
+        ],
+        "coaches": ["Coach John White", "Coach Michael Brown", "Coach Kevin Smith"],
+        "website": "http://www.illinoisgridironcamp.com",
+        "facebook_url": "https://www.facebook.com/GridironCampIL",
+        "twitter_url": "https://twitter.com/GridironCampIL",
+        "instagram_url": "https://www.instagram.com/GridironCampIL"
+    }
+]
+
+
