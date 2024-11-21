@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.13.0",
-    "@emotion/styled": "^11.13.0",
-    "@mui/material": "^5.16.6",
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5",
+    "@langchain/core": "^0.3.18",
+    "@langchain/openai": "^0.3.14",
+    "@mui/material": "^5.16.7",
     "axios": "^1.7.3",
     "dotenv": "^16.4.5",
     "langchain": "^0.2.13",
