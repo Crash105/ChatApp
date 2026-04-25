@@ -5,9 +5,16 @@ import { Box, Stack, TextField,  Typography} from "@mui/material";
 import { Messages } from "openai/resources/beta/threads/messages";
 import Button from '@mui/material/Button';
 import Link from 'next/link';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { firestore, auth } from "../firebase";
+
 
 export default function LandingPage() {
+
+  
     return (
+      
+       
         <Box width = "100vw" height = "100vh" display = "flex" flexDirection="column" justifyContent="center" alignItems={"center"}  >
           <Stack  textAlign = "center" alignItems={"center"} gap = {1}  sx={{
         width: {
@@ -60,6 +67,8 @@ export default function LandingPage() {
       </Link>
     
   </Box>
+      
+  
 
     );
   }
