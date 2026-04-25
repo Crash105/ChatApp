@@ -1,14 +1,66 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, Stack, TextField, Typography} from "@mui/material";
 import { Messages } from "openai/resources/beta/threads/messages";
 import Button from '@mui/material/Button';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { firestore, auth } from "@/src/firebase";
+import {
+  collection,
+  query,
+  getDocs,
+  setDoc,
+  doc,
+  deleteDoc,
+  getDoc,
+} from "firebase/firestore";
+import {  useRouter } from "next/navigation";
+import { signOut } from "firebase/auth";
+
+
 
 
 export default function Home() {
 const [messages,setMessages] = useState([
   {role: "assistant", content: "Hi I am your CampFinder Support Assistant. I can help you find info on all the camps we offer on our platform"}
 ])
+
+const [user, userLoading, error] = useAuthState(auth);
+const router = useRouter();
+const [checking, setChecking] = useState(true); // Start as true
+const [hasPDF1, setHasPDF] = useState(false);
+const [upload, setUpload] = useState(false);
+const[message, setMessage] = useState('')
+
+useEffect(() => {
+
+ 
+
+    async function checkPdF() {
+
+      if (!user) {
+      router.push('/login');
+      return;
+    }
+      const docRef=  query(collection(firestore, "users", user.uid, "pdfInput"))
+      const docSnap = await getDocs(docRef)
+      
+      
+      if(docSnap.empty) {
+          router.push("/PDFPage")   
+          setUpload(true) 
+          return;
+      }
+      else {
+        setHasPDF(true)
+        setChecking(false)
+      }
+      
+    }
+    checkPdF();
+  
+
+}, [user, userLoading, router]);
 
 const sendMessage = async() => {
   setMessage('')
@@ -47,8 +99,37 @@ const sendMessage = async() => {
 
 }
 
-const[message, setMessage] = useState('')
+const logOut = async() => {
+
+    await signOut(auth)
+
+  }
+
+  const pdfupload = () => {
+
+    router.push("/PDFPage")   
+
+  }
+
+if(userLoading || checking) {return <div>Loading...</div> }
+
+
+
+if(!user) {
+  return null
+}
+
+if(upload) {
+  
+}
+
+
+
   return (
+    
+      
+      
+      
    <Box width = "100vw" height = "100vh" display = "flex" flexDirection="column" justifyContent="center" alignItems={"center"}>
 
 
@@ -76,9 +157,16 @@ const[message, setMessage] = useState('')
     </Stack>
    <Stack direction = "row" spacing = {2}>
 <TextField label = "Message" fullWidth value = {message} onChange={(e) => setMessage(e.target.value)}></TextField>
-<Button varient = "contained" onClick={sendMessage} >Sent</Button>
+<Button variant = "contained" onClick={sendMessage} >Sent</Button>
+<Button variant="contained" onClick={logOut}>
+        LogOut
+      </Button>
+      <Button variant="contained" onClick={pdfupload}>
+        PDF Upload
+      </Button>
 </Stack>
     </Stack>
    </Box>
+   
   );
 }
