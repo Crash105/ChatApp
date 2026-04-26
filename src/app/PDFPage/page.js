@@ -62,32 +62,29 @@ const handleSubmit = async() => {
     })
 
     const data = await res.json();
-    const answer = data.result;
-    console.log(answer)
+    const chunks = data.result;
+    console.log(chunks)
 
-    /*
+    
 
-      const response = await fetch('/api/embeddings', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+    const response = await fetch('/api/embeddings', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
         body: JSON.stringify({
-          answer
-          
+        input: chunks.map(chunk => chunk.pageContent)
+
         }),
       });
 
       const data1 = await response.json();
-      const answer1 = data1.result;
+      const answer1 = data1.embeddings;
       console.log(answer1)
 
 
-
-*/
-
     } catch (err) {
-      console.error("Upload failed:", err);
+      console.error("Error during pdf to embeddings process", err);
       setError(err.message);
     } finally {
       setUploading(false);
