@@ -83,6 +83,32 @@ const handleSubmit = async() => {
       console.log(answer1)
 
 
+      const embeddingsresult = answer1.data.map((item) => ({
+        id: `vec-${item.index}`,
+        values: item.embedding,
+        metadata: {
+          text: chunks[item.index].pageContent,
+        }
+      }))
+
+      console.log(embeddingsresult)
+
+      const response1 = await fetch('/api/pinecone', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+        body: JSON.stringify({
+        input: embeddingsresult
+
+        }),
+      });
+
+      const data2 = await response1.json();
+      const answer2 = data2.status;
+      console.log(answer2)
+
+
     } catch (err) {
       console.error("Error during pdf to embeddings process", err);
       setError(err.message);

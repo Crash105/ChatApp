@@ -10,7 +10,7 @@ export async function POST(chunks) {
  const {input} = await chunks.json()
  
  if (!input) {
-    return Response.json({ error: 'No file provided' }, { status: 400 });
+    return Response.json({ error: 'No chunks provided' }, { status: 400 });
   }
   
   const response = await openai.embeddings.create({
