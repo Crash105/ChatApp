@@ -63,17 +63,20 @@ useEffect(() => {
 }, [user, userLoading, router]);
 
 const sendMessage = async() => {
-  setMessage('')
-  setMessages(
-    (messages) =>
-    [...messages, {role: "user", content:message},{role: "assistant", content: ""}])
+  const newUserMessage = { role: "user", content: message };
+  const newAssistantPlaceholder = { role: "assistant", content: "" };
+
+  const updatedMessages = [...messages, newUserMessage, newAssistantPlaceholder];
+
+  setMessages(updatedMessages);
+  setMessage('');
+
+ 
   const response = fetch("/api/chat", {
     method: "POST",
     headers: {
-      "Content-Type": 'application/json',
-
-    },
-    body: JSON.stringify([...messages, {role: "user", content: message}]),
+      "Content-Type": 'application/json',},
+    body: JSON.stringify([...messages, newUserMessage ]),
 
   }).then((res) => {
     const reader = res.body.getReader()
