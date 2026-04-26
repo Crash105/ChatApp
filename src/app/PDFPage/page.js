@@ -88,6 +88,7 @@ const handleSubmit = async() => {
         values: item.embedding,
         metadata: {
           text: chunks[item.index].pageContent,
+          url: downloadURL
         }
       }))
 
