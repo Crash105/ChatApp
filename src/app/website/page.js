@@ -76,7 +76,12 @@ const sendMessage = async() => {
     method: "POST",
     headers: {
       "Content-Type": 'application/json',},
-    body: JSON.stringify([...messages, newUserMessage ]),
+    body: JSON.stringify({
+      
+      data: [...messages, newUserMessage ],
+      userid: user.uid
+    }
+    ),
 
   }).then((res) => {
     const reader = res.body.getReader()

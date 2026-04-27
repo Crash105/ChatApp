@@ -37,15 +37,19 @@ const openai = new OpenAI({
 
 export async function POST(req){
    
-    const data = await req.json()
+    const res = await req.json()
 
-    console.log(data)
+    const {data} = res
+    const {userid} = res
+    console.log("Chat USERID: + " + userid)
+
+    
 
     if (!Array.isArray(data) || data.length === 0) {
         return NextResponse.json({ error: "Invalid request body" }, { status: 400 })
     }
 
-    const index = pc.index("ragpdfs");
+    const index = pc.index("ragpdfs").namespace(userid);
 
     const text = data[data.length - 1].content
     const embedding = await openai.embeddings.create({
@@ -55,12 +59,12 @@ export async function POST(req){
     })
 
     const result = await index.query({
-        topK: 3,
+        topK: 50,
         includeMetadata: true,
         vector: embedding.data[0].embedding
     })
 
-    console.log(result)
+    
 
     let resultString = "\n\nReturned results from vector db (done automatically):"
     result.matches.forEach((match) => {

@@ -10,6 +10,8 @@ export async function POST(req) {
     // 1. Correctly parse the request object
     const body = await req.json();
     const { input } = body;
+    const {userid} = body
+    console.log(userid)
     console.log("Pinecone input length:", input?.length, "first item:", input?.[0]?.id);
 
     if (!input) {
@@ -17,7 +19,7 @@ export async function POST(req) {
     }
 
     // 2. Select the index and namespace
-    const index = pc.index("ragpdfs");
+    const index = pc.index("ragpdfs").namespace(userid);
 
     // 3. Use the correct .upsert() method
     await index.upsert({ records: input });
