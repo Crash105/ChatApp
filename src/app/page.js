@@ -39,7 +39,7 @@ export default function LandingPage() {
     MozTextFillColor: 'transparent',
   }}
 >
-   GridIronCamp AI
+   AskMyDocs
   </Typography>
   <Typography
   variant="h5"
@@ -51,18 +51,18 @@ export default function LandingPage() {
     MozTextFillColor: 'transparent',
   }}
 >
-   AI Football Camp Locater
+   
   </Typography>
   <Typography
   variant="h5"
  
 >
-  We Help Highschool Students Easily Find Football Camps in United States through RAG AI Chatbot
+  Upload your PDFs and ask anything. Get instant answers powered by AI.
   </Typography>
   </Stack>
   <Link href="/website" passHref legacyBehavior>
         <Button variant="contained" color="primary">
-          Find a Camp
+          Start Chatting
         </Button>
       </Link>
     
