@@ -4,8 +4,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Football CampFinder App",
-  description: "Use AI to find local football camps",
+  title: "ChatApp",
+  description: "Use AI to chat with your document",
 };
 
 export default function RootLayout({ children }) {

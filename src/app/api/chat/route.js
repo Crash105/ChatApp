@@ -41,9 +41,8 @@ export async function POST(req){
 
     const {data} = res
     const {userid} = res
-    console.log("Chat USERID: + " + userid)
 
-    
+
 
     if (!Array.isArray(data) || data.length === 0) {
         return NextResponse.json({ error: "Invalid request body" }, { status: 400 })

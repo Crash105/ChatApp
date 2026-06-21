@@ -1,110 +1,94 @@
 "use client"
 import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
 import { Box, Stack, TextField, Typography} from "@mui/material";
-import { Messages } from "openai/resources/beta/threads/messages";
 import Button from '@mui/material/Button';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { firestore, auth } from "@/src/firebase";
 import {
   collection,
-  query,
+  query as firestoreQuery,
+  orderBy,
+  limit,
   getDocs,
-  setDoc,
-  doc,
-  deleteDoc,
-  getDoc,
+  addDoc,
 } from "firebase/firestore";
 import {  useRouter } from "next/navigation";
 import { signOut } from "firebase/auth";
-
+import Login from "../login/page";
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 
 
 export default function Home() {
-const [messages,setMessages] = useState([
-  {role: "assistant", content: "Hi I am your CampFinder Support Assistant. I can help you find info on all the camps we offer on our platform"}
-])
 
 const [user, userLoading, error] = useAuthState(auth);
 const router = useRouter();
-const [checking, setChecking] = useState(true); // Start as true
-const [hasPDF1, setHasPDF] = useState(false);
-const [upload, setUpload] = useState(false);
-const[message, setMessage] = useState('')
+const [checking, setChecking] = useState(true);
+const [message, setMessage] = useState('')
+const [streamingContent, setStreamingContent] = useState(null)
+
+const messagesRef = user ? collection(firestore, "users", user.uid, "messages") : null;
+const messagesQuery = messagesRef ? firestoreQuery(messagesRef, orderBy('timestamp'), limit(25)) : null;
+
+const [messages = []] = useCollectionData(messagesQuery, { idField: 'id' });
+
 
 useEffect(() => {
-
- 
-
     async function checkPdF() {
-
       if (!user) {
       router.push('/login');
       return;
     }
-      const docRef=  query(collection(firestore, "users", user.uid, "pdfInput"))
+      const docRef= collection(firestore, "users", user.uid, "pdfInput")
       const docSnap = await getDocs(docRef)
       
       
       if(docSnap.empty) {
-          router.push("/PDFPage")   
-          setUpload(true) 
+          router.push("/PDFPage")
           return;
       }
       else {
-        setHasPDF(true)
         setChecking(false)
       }
-      
     }
     checkPdF();
-  
-
 }, [user, userLoading, router]);
 
-const sendMessage = async() => {
+const sendMessage = async () => {
+
+  try {
   const newUserMessage = { role: "user", content: message };
-  const newAssistantPlaceholder = { role: "assistant", content: "" };
-
-  const updatedMessages = [...messages, newUserMessage, newAssistantPlaceholder];
-
-  setMessages(updatedMessages);
   setMessage('');
 
- 
-  const response = fetch("/api/chat", {
+  await addDoc(messagesRef, { ...newUserMessage, timestamp: new Date() });
+
+  let assistantContent = '';
+  setStreamingContent('');
+
+  const res = await fetch("/api/chat", {
     method: "POST",
-    headers: {
-      "Content-Type": 'application/json',},
-    body: JSON.stringify({
-      
-      data: [...messages, newUserMessage ],
-      userid: user.uid
-    }
-    ),
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ data: [...messages, newUserMessage], userid: user.uid }),
+  });
+  if (!res.ok) throw new Error(`Chatt failed to generate text(${res.status})`);
 
-  }).then((res) => {
-    const reader = res.body.getReader()
-    const decoder = new TextDecoder()
-    let result = ''
-    return reader.read().then(function processText({done,value}) {
-      if(done) {
-        return result
-      }
-      const text = decoder.decode(value || new Uint8Array(), {stream: true})
-      console.log(text)
-      setMessages((messages) => {
-        let lastMessage = messages[messages.length - 1]
-        let otherMessage = messages.slice(0,messages.length-1)
-        return [...otherMessage,
-         {...lastMessage, content: lastMessage.content + text}
-        
-     ] })
-      return reader.read().then(processText)
-    })
-  })
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
 
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    const text = decoder.decode(value || new Uint8Array(), { stream: true });
+    assistantContent += text;
+    setStreamingContent(assistantContent);
+  }
+   const newChatMessage = {role: 'assistant', content: assistantContent };
+  await addDoc(messagesRef, {...newChatMessage, timestamp: new Date() });
+  setStreamingContent(null);
+}catch(err) {
 
+}
 }
 
 const logOut = async() => {
@@ -120,24 +104,8 @@ const logOut = async() => {
   }
 
 if(userLoading || checking) {return <div>Loading...</div> }
-
-
-
-if(!user) {
-  return null
-}
-
-if(upload) {
-  
-}
-
-
-
   return (
     
-      
-      
-      
    <Box width = "100vw" height = "100vh" display = "flex" flexDirection="column" justifyContent="center" alignItems={"center"}>
 
 
@@ -153,24 +121,32 @@ if(upload) {
       }} >
     <Stack direction = "column" spacing = {2} flexGrow={1} overflow={"auto"} maxHeight={'100%'}>
     {messages.map((message,index) => (
-      <Box  key = {index} display = "flex" justifyContent={message.role === "assistant" ? "flex-start" : 'flex-end'}>
-      <Box bgcolor={message.role === 'assistant' ? 'primary.main' : 'secondary.main'} color = "white" borderRadius={16} p = {5}>
-        {message.content}
-      </Box>
-    
-
+      <Box key={index} display="flex" justifyContent={message.role === "assistant" ? "flex-start" : 'flex-end'}>
+        <Box bgcolor={message.role === 'assistant' ? 'primary.main' : 'secondary.main'} color="white" borderRadius={16} p={5}>
+          <ReactMarkdown>{message.content}</ReactMarkdown>
+        </Box>
       </Box>
     ))}
+    {streamingContent !== null && (
+      <Box display="flex" justifyContent="flex-start">
+        <Box bgcolor="primary.main" color="white" borderRadius={16} p={5}>
+          <ReactMarkdown>{streamingContent}</ReactMarkdown>
+        </Box>
+      </Box>
+    )}
     
     </Stack>
    <Stack direction = "row" spacing = {2}>
 <TextField label = "Message" fullWidth value = {message} onChange={(e) => setMessage(e.target.value)}></TextField>
-<Button variant = "contained" onClick={sendMessage} >Sent</Button>
+<Button variant = "contained" onClick={sendMessage} >Send</Button>
 <Button variant="contained" onClick={logOut}>
         LogOut
       </Button>
       <Button variant="contained" onClick={pdfupload}>
         PDF Upload
+      </Button>
+      <Button variant="contained" onClick={() => router.push('/pdfs')}>
+        My PDFs
       </Button>
 </Stack>
     </Stack>

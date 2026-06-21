@@ -2,7 +2,7 @@
 
 import { firestore, auth } from "@/src/firebase";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, collection, addDoc, getDocs } from "firebase/firestore";
 import { Box, Button, Container, Paper, Typography } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -30,6 +30,16 @@ export default function Login() {
       { name: user.displayName, email: user.email },
       { merge: true }
     );
+
+    const messagesRef = collection(firestore, "users", user.uid, "messages");
+    const messagesSnap = await getDocs(messagesRef);
+    if (messagesSnap.empty) {
+      await addDoc(messagesRef, {
+        role: "assistant",
+        content: "Hi I am your CampFinder Support Assistant. I can help you find info on all the camps we offer on our platform",
+        timestamp: new Date(),
+      });
+    }
 
     router.push("/website")
 

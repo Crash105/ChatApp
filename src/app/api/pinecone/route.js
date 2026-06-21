@@ -11,8 +11,6 @@ export async function POST(req) {
     const body = await req.json();
     const { input } = body;
     const {userid} = body
-    console.log(userid)
-    console.log("Pinecone input length:", input?.length, "first item:", input?.[0]?.id);
 
     if (!input) {
       return Response.json({ error: 'No valid input (embeddings) provided' }, { status: 400 });
@@ -29,5 +27,20 @@ export async function POST(req) {
   } catch (error) {
     console.error("Pinecone Upsert Error:", error);
     return Response.json({ error: 'Failed to upsert to Pinecone' }, { status: 500 });
+  }
+}
+
+export async function DELETE(req) {
+  try {
+    const { vectorIds, userid } = await req.json();
+    if (!vectorIds?.length || !userid) {
+      return Response.json({ error: 'Missing vectorIds or userid' }, { status: 400 });
+    }
+    const index = pc.index("ragpdfs").namespace(userid);
+    await index.deleteMany(vectorIds);
+    return Response.json({ status: 'success' });
+  } catch (error) {
+    console.error("Pinecone Delete Error:", error);
+    return Response.json({ error: 'Failed to delete from Pinecone' }, { status: 500 });
   }
 }
